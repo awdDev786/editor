@@ -1,0 +1,445 @@
+/* Menu item goes to next line due to float:right issue on Firefox */
+@-moz-document url-prefix() {
+    .context-menu .menu-shortcut {
+        float: none;
+        margin-left: auto;
+    }
+    .dropdown-menu li a {
+        display: flex;
+        flex-flow: space-between;
+    }
+}
+
+.image-view-swatches {
+    margin-top: 15px;
+    overflow: auto;
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    -o-user-select: text;
+    user-select: text;
+}
+
+.swatch-wrapper {
+    float: left;
+    margin: 0 10px 10px 0;
+    min-width: 110px;
+    text-align: left;
+}
+
+#editor-holder .pane-content .image-view {
+    overflow: auto !important;
+
+    h3 {
+        font-size: 15px;
+        margin: 0;
+        font-weight: 600;
+        color: white;
+        text-align: left;
+        margin-bottom: 6px;
+        padding: 3px 0 5px 0;
+        border-bottom: solid 1px rgba(0,0,0,.15);
+        color: rgba(0,0,0,.6)
+    }
+
+    canvas {
+        max-width: 100%;
+    }
+
+    button {
+        font-size: 15px;
+        line-height: 15px;
+    }
+
+    .image-wrapper {
+        position: relative;
+        margin-bottom: 10px;
+
+        &.processing .processing-overlay {
+          opacity: 1;
+        }
+
+        .processing-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0,0,0,.6);
+          opacity: 0;
+          transition: opacity .2s ease-out;
+
+          .processing-spinner {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            z-index: 9999999;
+            background: url(images/thimble-icon.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            left: ~"calc(50% - 25px)";
+            top: ~"calc(50% - 25px)";
+            animation: processingSpinner 2s infinite ease-in-out;
+
+            @keyframes processingSpinner {
+              0% {
+                  transform: rotateX(0deg) rotateY(0deg);
+              }
+              25% {
+                  transform: rotateX(-180.1deg) rotateY(0deg);
+              }
+              50% {
+                  transform: rotateX(-180deg) rotateY(-179.9deg);
+              }
+              75% {
+                  transform: rotateX(-360deg) rotateY(-179.9deg);
+              }
+              100% {
+                  transform: rotateX(-360deg) rotateY(-360deg);
+              }
+
+            }
+          }
+        }
+    }
+
+    .image-filter-actions {
+        float: right;
+
+        button {
+            cursor: pointer;
+            font-weight: 600;
+            padding: 8px 12px;
+            border: none;
+            color: white;
+            margin-left: 5px;
+            border-radius: 2px;
+            font-size: 15px;
+            box-shadow: none;
+            border-bottom: solid 2px rgba(0,0,0,.2);
+
+          &[disabled] {
+              cursor: not-allowed;
+          }
+        }
+
+        .btn-image-filter-save {
+            background: #2A9961;
+
+            &:not(["disabled"]):hover {
+                background: #39AA6D
+            }
+
+            &:active {
+                background: #288952;
+            }
+      }
+
+      .btn-image-filter-reset {
+          background: #666;
+
+          &:not(["disabled"]):hover {
+              background: #777;
+          }
+
+          &:active {
+              background: #555;
+          }
+      }
+
+    }
+
+    .image-filters {
+        margin-bottom: 30px;
+    }
+
+    .image-filters button {
+        background: transparent;
+        border-radius: 15px;
+        border: none;
+        box-shadow: none;
+        outline: none;
+        opacity: .6;
+        margin: 4px 0;
+        cursor: pointer;
+        padding: 6px 10px;
+        font-size: 15px;
+
+        &:hover {
+            opacity: 1;
+            background: rgba(0,0,0,.12);
+        }
+
+        &.active-filter {
+            background: #22A4D6;
+            color: white;
+            opacity: 1;
+        }
+    }
+
+    .image-view-swatch {
+        display: block;
+        float: left;
+        height: 25px;
+        width: 25px;
+        border-radius: 1px;
+        transition: .2s;
+        margin-right: 10px;
+    }
+
+    .image-view-hex {
+        font-size: 15px;
+        text-transform: uppercase;
+        position: relative;
+        top: 4px;
+        cursor: text;
+        opacity: .6;
+    }
+
+    .image-header {
+        height: auto !important;
+        font-size: 15px;
+    }
+}
+
+.dark  #editor-holder .image-filters button:hover {
+    background: rgba(255,255,255,.12);
+}
+
+.dark #editor-holder .active-filter {
+    background: #036C9E;
+}
+
+.dark #editor-holder .pane-content .image-view h3 {
+    border-bottom: solid 1px rgba(255,255,255,.15);
+    color: rgba(255,255,255,.6)
+}
+
+.fullscreen-preview #first-pane {
+    width: 0 !important;
+}
+
+.fullscreen-preview .main-view .content {
+    left: 0 !important;
+}
+
+.fullscreen-preview .horz-resizer {
+    visibility: hidden;
+}
+
+.bramble-inspector-highlight {
+    background: rgba(0, 135, 207, .3) !important;
+}
+
+table.guide {
+    width: 100%;
+}
+
+table.guide td{
+    text-align: center;
+    padding-bottom:20px;
+}
+
+.model-header {
+    padding-left:20px;
+}
+
+.model-text {
+    padding-left:20px;
+}
+
+span.dialog-button {
+    float: right;
+    padding-right: 10px;
+}
+
+.CodeMirror-lines {
+    padding-left: 10px;
+}
+
+.CodeMirror .CodeMirror-gutters .CodeMirror-gutter:after {
+    display: none;
+}
+
+.CodeMirror-linenumber {
+    padding: 0 10px 0 0;
+}
+
+.inline-widget .CodeMirror-foldgutter,
+.inline-widget .CodeMirror-linenumbers,
+.inline-widget .CodeMirror-gutters {
+    background: transparent !important;
+}
+
+/* Makes the resize handles wider, and visile on hover & drag */
+
+#sidebar {
+    position: relative;
+}
+
+.CodeMirror-foldgutter:after {
+    display: none;
+}
+
+.horz-resizer {
+    transition: opacity .15s ease-out;
+    background: rgba(0,0,0,.08);
+    width: 12px;
+}
+
+#sidebar .horz-resizer {
+    right: -12px !important;
+    left: auto !important;
+}
+
+.dark .main-view > .horz-resizer,
+.dark #sidebar .horz-resizer {
+    background: rgba(255,255,255,.1);
+}
+
+.horz-resizer.active,
+.horz-resizer:hover {
+    opacity: 1;
+}
+
+.CodeMirror-linewidget {
+  transform: translateX(-10px);
+}
+
+.modal-backdrop {
+  opacity: .8;
+  animation: showModalBackdrop .1s ease-out;
+
+  @keyframes showModalBackdrop {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: .8;
+    }
+  }
+}
+
+
+// Modal overrides
+
+.modal-inner-wrapper {
+  vertical-align: top;
+}
+
+.dark .modal, .modal {
+  background: white;
+  border: none;
+  border-radius: 0;
+  animation: showModal .25s ease-out;
+  transform: translateY(70px);
+
+  @keyframes showModal {
+    0% {
+      transform: scale(.9) translateY(85px);
+      opacity: 0;
+    }
+    60% {
+      transform: scale(1.03) translateY(65px);
+    }
+    100% {
+      transform: scale(1) translateY(70px);
+    }
+  }
+
+  .modal-body {
+    background: transparent;
+    color: black;
+    border: none;
+    padding: 20px;
+  }
+
+  .dialog-title {
+    color: black;
+    font-family: "Open Sans", sans-serif;
+    padding: 20px 20px 0 20px;
+    font-weight: 600;
+
+    &:empty {
+      padding: 0;
+    }
+  }
+
+  .modal-header {
+    padding: 0;
+    background: transparent;
+    border: none;
+  }
+
+  .dialog-message {
+    font-family: "Open Sans";
+    color: black;
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .modal-footer {
+    background: rgba(0,0,0,.1);
+    border-radius: 0;
+    border: none;
+    padding: 15px 20px;
+  }
+
+  button {
+    margin-left: 10px;
+    display: inline-block;
+    padding: 8px 15px;
+    cursor: pointer;
+    color: white;
+    margin: 0;
+    border: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    border-radius: 2px;
+    background-color: #2A9961;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Open Sans", sans-serif;
+  }
+
+  .btn.primary {
+    border: none;
+    background-color: #2A9961;
+    border-bottom: solid 2px rgba(0,0,0,0.3);
+
+    &:hover {
+      background: #39AA6D;
+    }
+
+    &:active {
+      background: #288952;
+    }
+  }
+
+  .btn {
+    border: none;
+    background: #B0B0B0;
+    border-bottom: solid 2px rgba(0,0,0,0.3);
+
+    &:focus {
+      color: white;
+    }
+
+    &:hover {
+      background-color: #BCBCBC;
+      color: white;
+    }
+
+    &:active {
+      background-color: #9B9B9B;
+      position: relative;
+      color: white;
+      border-bottom: solid 2px transparent;
+      margin-top: 2px;
+      padding: 8px 15px 6px 15px;
+    }
+  }
+}

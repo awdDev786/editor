@@ -1,0 +1,39 @@
+{% extends "./base.html" %}
+
+{% block pagetitle %}
+  {{ gettext("thimbleHeading") | safe }}
+{% endblock %}
+
+{% block top %}
+  <section class="get-started-feature">
+    <div class="content-wrapper">
+      <div class="left-side">
+        <h1>{{ gettext("thimbleTagLine") | safe }}</h1>
+        <p>
+          {{ gettext("thimbleDescription1") | safe }}
+        </p>
+        <div class="new-project-button-wrapper">
+          <a id="new-project-button" class="feature-button" href="/{{ locale }}/projects/new" title="{{ gettext("newProjectBtnTitle") }}" class="button">
+            <div class="pencil-animation">
+              <div class="line-wrapper">
+                <div class="line line-one"></div>
+                <div class="line line-two"></div>
+                <div class="line line-three"></div>
+              </div>
+              <div class="pencil"></div>
+            </div>
+            <span id="new-project-button-text">{{ gettext("newProjectBtn") }}</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="video">
+        <iframe width="504" height="284" src="https://www.youtube.com/embed/JecFOjD9I3k?rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block content %}
+  {% include '../gallery.html' %}
+{% endblock %}
